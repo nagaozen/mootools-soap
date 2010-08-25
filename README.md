@@ -21,3 +21,19 @@ Example
             );
         }
     });
+
+Features
+-----
+
+* Consumes SOAP 1.1 WebServices
+
+Version
+-----
+
+`0.0.0.1` - Initial working version
+
+Roadmap
+-----
+
+* Consume WebServices following SOAP 1.2 specification
+* Build a SOAP WebService server based on mootools classes
