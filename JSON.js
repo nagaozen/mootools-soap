@@ -1,6 +1,5 @@
-JSON.extend({
 
-    toXML: function(json, container) {
+JSON.toXML = function(json, container) {
         function __sanitize(value) {
             return value.sanitize(
                 ['&',    '<',   '>',    '\'',    '"'],
@@ -10,7 +9,7 @@ JSON.extend({
         
         function __toXML(o, t) {
             var xml = [];
-            switch( $type(o) ) {
+            switch( typeOf(o) ) {
                 case "array":
                     var a = o;
                     if(a.length === 0) {
@@ -64,9 +63,9 @@ JSON.extend({
         }
         if(container) xml.push("</{tag}>".substitute({"tag":container}));
         return xml.join('');
-    },
+    };
 
-    fromXML: function(xml) {
+JSON.fromXML = function(xml) {
         function __removeWhite(tree) {
             tree.normalize();
             for(var n = tree.firstChild; n; ) {
@@ -218,6 +217,5 @@ JSON.extend({
             proxy = __toProxy(clean),
             body = __toJson(proxy, xml.nodeName);
         return JSON.parse("{" + body + "}");
-    }
+};
 
-});
